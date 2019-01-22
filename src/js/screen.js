@@ -1,5 +1,4 @@
- function Env(){
-    var f = "";
+const Env = function(){
     var ua=navigator.userAgent.toLowerCase();
 
     function check(r){
@@ -10,7 +9,7 @@
     return {
 
       //判断环境，操作系统、浏览器、是否是https连接等
-        isStrict : DOC.compatMode == "CSS1Compat",
+        isStrict : DOC.compatMode === "CSS1Compat",
         isOpera : check(/opera/),
         isChrome : check(/\bchrome\b/),
         isWebKit : check(/webkit/),
@@ -27,11 +26,11 @@
         isIE : !this.isOpera && check(/msie/),
         isIE7 : this.isIE && check(/msie 7/),
         isIE8 : this.isIE && check(/msie 8/),
-        isIE6 : this.isIE && !isIE7 && !isIE8,
+        // isIE6 : this.isIE && !isIE7 && !isIE8,
         isGecko : !this.isWebKit && check(/gecko/),
         isGecko2 : this.isGecko && check(/rv:1\.8/),
         isGecko3 : this.isGecko && check(/rv:1\.9/),
-        isBorderBox : this.isIE && !isStrict,
+        // isBorderBox : this.isIE && !isStrict,
         isWindows : check(/windows|win32/),
         isMac : check(/macintosh|mac os x/),
         isAir : check(/adobeair/),
